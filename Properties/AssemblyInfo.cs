@@ -21,19 +21,3 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-namespace ExposePatchedMethods
-{
-	public static class BuildInfo
-	{
-		public const string Version = "2.0.0";
-
-		public const string Name = "ExposePatchedMethods";
-		public const string Description = "ExposePatchedMethods";
-
-		public const string Author = "eia485";
-
-		public const string Link = "https://github.com/EIA485/NeosExposePatchedMethods";
-
-		public const string GUID = "net.eia485.ExposePatchedMethods";
-	}
-}

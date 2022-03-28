@@ -14,7 +14,7 @@ namespace ExposePatchedMethods
         public override string Link => "https://github.com/EIA485/NeosExposePatchedMethods";
 
         [AutoRegisterConfigKey]
-        private static readonly ModConfigurationKey<bool> Key_Enable = new("enabled", "Enables this mod.", () => true);
+        private static readonly ModConfigurationKey<bool> Key_ExposeUserspace = new("Show in userspace", "Enables this texts to User under a root in the root of UserSpace.", () => true);
 
         [AutoRegisterConfigKey]
         private static ModConfigurationKey<bool> Key_ExposeEverywhere = new("Show Everywhare", "Enables this texts to User in WorldSpace. That makes show everywhare.", () => false);
@@ -46,7 +46,7 @@ namespace ExposePatchedMethods
             [HarmonyPatch(typeof(Userspace), "OnAttach")]
             static void UserspaceOnAttachPostfix(Userspace __instance)
             {
-                GenList(__instance.World.RootSlot);
+                if (Config.GetValue(Key_ExposeUserspace)) GenList(__instance.World.RootSlot);
             }
             [HarmonyPostfix]
             [HarmonyPatch(typeof(User), "Root", MethodType.Setter)]
@@ -58,7 +58,6 @@ namespace ExposePatchedMethods
 
         static void GenList(Slot slot)
         {
-            if (!Config.GetValue(Key_Enable)) return;
             Slot list = slot.AddSlot("Loaded mods", false);
             foreach (string harmonyId in HarmonyIds)
             {

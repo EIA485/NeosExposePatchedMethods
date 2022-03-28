@@ -8,10 +8,10 @@ namespace ExposePatchedMethods
 {
     public class ExposePatchedMethods : NeosMod
     {
-        public override string Name => BuildInfo.Name;
-        public override string Author => BuildInfo.Author;
-        public override string Version => BuildInfo.Version;
-        public override string Link => BuildInfo.Link;
+        public override string Name => "ExposePatchedMethods";
+        public override string Author => "eia485, kazu0617";
+        public override string Version => "2.0.0";
+        public override string Link => "https://github.com/EIA485/NeosExposePatchedMethods";
 
         [AutoRegisterConfigKey]
         private static readonly ModConfigurationKey<bool> Key_Enable = new("enabled", "Enables this mod.", () => true);
@@ -34,7 +34,7 @@ namespace ExposePatchedMethods
                     HarmonyIds.Add(owner);
                 }
             }
-            Harmony harmony = new Harmony(BuildInfo.GUID);
+            Harmony harmony = new Harmony("net.eia485.ExposePatchedMethods");
             harmony.PatchAll();
 
         }

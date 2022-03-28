@@ -17,7 +17,7 @@ namespace ExposePatchedMethods
         private static readonly ModConfigurationKey<bool> Key_ExposeUserspace = new("Show in userspace", "Enables this texts to User under a root in the root of UserSpace.", () => true);
 
         [AutoRegisterConfigKey]
-        private static ModConfigurationKey<bool> Key_ExposeEverywhere = new("Show Everywhare", "Enables this texts to User in WorldSpace. That makes show everywhare.", () => false);
+        private static ModConfigurationKey<bool> Key_ExposeEverywhere = new("Show Everywhere", "Enables this texts to User in WorldSpace. That makes show everywhere.", () => false);
 
         private static ModConfiguration Config;
 

@@ -26,7 +26,6 @@ namespace ExposePatchedMethods
         {
             Config = GetConfiguration();
             Config.Save(true);
-            if (!Config.GetValue(Key_Enable)) return;
 
             foreach (MethodBase method in Harmony.GetAllPatchedMethods())
             {
@@ -59,6 +58,7 @@ namespace ExposePatchedMethods
 
         static void GenList(Slot slot)
         {
+            if (!Config.GetValue(Key_Enable)) return;
             Slot list = slot.AddSlot("Loaded mods", false);
             foreach (string harmonyId in HarmonyIds)
             {

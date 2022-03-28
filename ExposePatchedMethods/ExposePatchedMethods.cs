@@ -40,7 +40,7 @@ namespace ExposePatchedMethods
 		}
 
 		[HarmonyPatch]
-		class PatchEveryWhare
+		class Patches
 		{
 			[HarmonyPostfix]
 			[HarmonyPatch(typeof(Userspace), "OnAttach")]

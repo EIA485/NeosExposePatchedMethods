@@ -16,6 +16,7 @@
     <NeosPath Condition="Exists('C:\Program Files (x86)\Steam\steamapps\common\NeosVR\nml_mods')">C:\Program Files (x86)\Steam\steamapps\common\NeosVR\</NeosPath>
     <NeosPath Condition="Exists('C:\Neos\app\nml_mods')">C:\Neos\app\</NeosPath>
     <NeosPath Condition="Exists('C:\ProgramData\Neos\app\nml_mods')">C:\ProgramData\Neos\app\</NeosPath>
+    <NeosPath Condition="Exists('D:\Programs\x64\Neos\app\')">D:\Programs\x64\Neos\app\</NeosPath>
     <NeosPath Condition="Exists('$(HOME)/.steam/steam/steamapps/common/NeosVR/')">$(HOME)/.steam/steam/steamapps/common/NeosVR/</NeosPath>
     <GameRefsPath>$(NeosPath)Neos_Data\Managed\</GameRefsPath>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
@@ -28,7 +29,8 @@
       <HintPath>$(NeosPath)Libraries\NeosModLoader.dll</HintPath>
     </Reference>
     <Reference Include="HarmonyLib">
-      <HintPath>$(NeosPath)0Harmony.dll</HintPath>
+      <HintPath>$(NeosPath)nml_libs\0Harmony.dll</HintPath>
+      <HintPath Condition="Exists('$(NeosPath)0Harmony.dll')">$(NeosPath)0Harmony.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>$(GameRefsPath)Assembly-CSharp.dll</HintPath>

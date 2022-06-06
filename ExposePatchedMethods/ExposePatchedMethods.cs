@@ -9,8 +9,8 @@ namespace ExposePatchedMethods
 	public class ExposePatchedMethods : NeosMod
 	{
 		public override string Name => "ExposePatchedMethods";
-		public override string Author => "eia485, kazu0617";
-		public override string Version => "2.0.0";
+		public override string Author => "eia485, kazu0617, rampa3";
+		public override string Version => "2.0.1";
 		public override string Link => "https://github.com/EIA485/NeosExposePatchedMethods";
 
 		[AutoRegisterConfigKey]
@@ -18,6 +18,10 @@ namespace ExposePatchedMethods
 
 		[AutoRegisterConfigKey]
 		private static ModConfigurationKey<bool> Key_ExposeEverywhere = new("Show Everywhere", "Enables this texts to User in WorldSpace. That makes show everywhere.", () => false);
+
+        [AutoRegisterConfigKey]
+		private static ModConfigurationKey<bool> Key_ShowModNames = new("Show Mod Names", "Enables this makes the slots use mod names. Otherwise makes use HarmonyIDs. (Restart required to take effect.)", () => false);
+
 
 		private static ModConfiguration Config;
 
@@ -59,9 +63,20 @@ namespace ExposePatchedMethods
 		static void GenList(Slot slot)
 		{
 			Slot list = slot.AddSlot("Loaded mods", false);
-			foreach (string harmonyId in HarmonyIds)
+			if (Config.GetValue(Key_ShowModNames))
 			{
-				list.AddSlot(harmonyId);
+				IEnumerable<NeosModBase> mods = ModLoader.Mods();
+				foreach (NeosModBase mod in mods)
+				{
+					list.AddSlot(mod.Name);
+				}
+			}
+			else
+			{
+				foreach (string harmonyId in HarmonyIds)
+				{
+					list.AddSlot(harmonyId);
+				}
 			}
 		}
 	}

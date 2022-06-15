@@ -1,6 +1,8 @@
 # ExposePatchedMethods
 
-A [NeosModLoader](https://github.com/zkxs/NeosModLoader) mod for [Neos](https://neos.com/) that exposes what mods you have loaded to your userspace. it does this by creating a slot called "Loaded mods" with its children being all of the harmony ids that had been used to patch a method at the time this mod was called. mods are called in mod file name alphabetical order. if you want this mod to exposes all mods then prefix it's file name with zz. if you also want to expose what mods you have loaded under your userroot you can enable key "Show Everywhere" in Config. 
+A [NeosModLoader](https://github.com/zkxs/NeosModLoader) mod for [Neos](https://neos.com/) that exposes what mods you have loaded to your userspace.
+
+it does this by creating a slots that's children are mods, there are 2 types of mod lists,mod names and harmonyids. there are config options to expose these lists under your userspace root and userroot. the harmonyid list has a config option to only show mods that were called before it. mods are called in mod file name alphabetical order.
 
 このModはUserSpaceに対しスロットを追加することで導入しているModの一覧を取得できるようにする [Neos](https://neos.com/) の [NeosModLoader](https://github.com/zkxs/NeosModLoader) 向けModです。
 

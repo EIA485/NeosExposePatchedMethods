@@ -1,5 +1,5 @@
 using HarmonyLib;
-using NeosModLoader;
+using ResoniteModLoader;
 using FrooxEngine;
 using System;
 using System.Reflection;
@@ -7,12 +7,12 @@ using System.Collections.Generic;
 
 namespace ExposePatchedMethods
 {
-	public class ExposePatchedMethods : NeosMod
+	public class ExposePatchedMethods : ResoniteMod
 	{
 		public override string Name => "ExposePatchedMethods";
-		public override string Author => "eia485, kazu0617, rampa3";
-		public override string Version => "4.0.0";
-		public override string Link => "https://github.com/EIA485/NeosExposePatchedMethods";
+		public override string Author => "eia485, kazu0617, rampa3, Nytra";
+		public override string Version => "5.0.0";
+		public override string Link => "https://github.com/Nytra/ResoniteExposePatchedMethods";
 
 		#region config
 		//old keys to be read for the new keys
@@ -51,7 +51,7 @@ namespace ExposePatchedMethods
 		{
 			harmonyidsOnStart = serializedVersion > new Version(1, 0, 0, 0);
 			updateFromOld = serializedVersion == new Version(3, 0, 0, 0);
-			return IncompatibleConfigurationHandlingOption.FORCE_LOAD;
+			return IncompatibleConfigurationHandlingOption.FORCELOAD;
 		}
 		#endregion
 
@@ -141,7 +141,7 @@ namespace ExposePatchedMethods
 		static void GenList(Slot slot, NameMetadata metadata)
 		{
 			Slot list = slot.AddSlot("Loaded mod names", false);
-			foreach (NeosModBase mod in ModLoader.Mods())
+			foreach (ResoniteModBase mod in ModLoader.Mods())
 			{
 				Slot s = list.AddSlot(mod.Name);
 				if (metadata != NameMetadata.None) s.AttachComponent<DynamicVariableSpace>().SpaceName.Value = "modMetaData";

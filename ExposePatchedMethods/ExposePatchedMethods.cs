@@ -111,7 +111,7 @@ namespace ExposePatchedMethods
                 if (metadata.HasFlag(NameMetadata.Version)) s.CreateVariable("modMetaData/Version", plugin.Metadata.Version.ToString());
                 if (metadata.HasFlag(NameMetadata.Guid)) s.CreateVariable("modMetaData/GUID", plugin.Metadata.GUID);
 
-                if (plugin.Instance.GetType().GetCustomAttribute(typeof(ResonitePlugin)) is ResonitePlugin resoPlugin)
+                if (MetadataHelper.GetMetadata(plugin.Instance) is ResonitePlugin resoPlugin)
                 {
                     if (metadata.HasFlag(NameMetadata.Author)) s.CreateVariable("modMetaData/Author", resoPlugin.Author);
                     if (metadata.HasFlag(NameMetadata.Link)) s.CreateVariable("modMetaData/Link", resoPlugin.Link);

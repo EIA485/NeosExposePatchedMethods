@@ -9,9 +9,6 @@
 		<FirstAuthor>$([System.String]::Copy('$(Authors)').Split(',')[0].Trim())</FirstAuthor>
 		<PackageId>net.$(FirstAuthor).$(Product)</PackageId>
 		<RootNamespace>$(Product)</RootNamespace>
-		<AssemblyVersion>$(Version)</AssemblyVersion>
-		<FileVersion>$(Version)</FileVersion>
-
 		
 		<RestoreAdditionalProjectSources>https://nuget-modding.resonite.net/v3/index.json</RestoreAdditionalProjectSources>
 		

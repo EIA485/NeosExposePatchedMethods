@@ -1,17 +1,16 @@
 using BepInExResoniteShim;
 using BepInEx;
-using BepInEx.Bootstrap;
 using BepInEx.Configuration;
 using FrooxEngine;
 using HarmonyLib;
-using System.Collections.Generic;
 using System.Reflection;
 using BepInEx.NET.Common;
 
 namespace ExposePatchedMethods
 {
-    [ResonitePlugin(MyPluginInfo.PLUGIN_GUID, MyPluginInfo.PLUGIN_NAME, MyPluginInfo.PLUGIN_VERSION, MyPluginInfo.PLUGIN_AUTHORS, MyPluginInfo.PLUGIN_REPOSITORY_URL)]
-    [BepInDependency("ResoniteModding.BepInExResoniteShim")]
+
+    [ResonitePlugin(PluginMetadata.GUID, PluginMetadata.NAME, PluginMetadata.VERSION, PluginMetadata.AUTHORS, PluginMetadata.REPOSITORY_URL)]
+    [BepInDependency(BepInExResoniteShim.PluginMetadata.GUID)]
     public class ExposePatchedMethods : BasePlugin
     {
 
@@ -52,11 +51,11 @@ namespace ExposePatchedMethods
 
         public override void Load()
         {
-            ExposeUserspace = Config.Bind(MyPluginInfo.PLUGIN_NAME, "Show in userspace", true, "Enables showing harmony ids under the root of UserSpace.");
-            ExposeEverywhere = Config.Bind(MyPluginInfo.PLUGIN_NAME, "Show Everywhere", false, "Enables showing harmony ids in WorldSpace. They show under your user root");
+            ExposeUserspace = Config.Bind(PluginMetadata.NAME, "Show in userspace", true, "Enables showing harmony ids under the root of UserSpace.");
+            ExposeEverywhere = Config.Bind(PluginMetadata.NAME, "Show Everywhere", false, "Enables showing harmony ids in WorldSpace. They show under your user root");
 
-            UserSpaceModNamesMeta = Config.Bind(MyPluginInfo.PLUGIN_NAME,"Show Names in userspace w/ metadata", NameMetadata.All, "Enables showing mod names under the root of UserSpace. also allows you to select what metadata to show");
-            EverywhereModNamesMeta = Config.Bind(MyPluginInfo.PLUGIN_NAME,"Show Names Everywhere w/ metadata", NameMetadata.All, "Enables showing mod names in WorldSpace. They show under your user root. also allows you to select what metadata to show");
+            UserSpaceModNamesMeta = Config.Bind(PluginMetadata.NAME, "Show Names in userspace w/ metadata", NameMetadata.All, "Enables showing mod names under the root of UserSpace. also allows you to select what metadata to show");
+            EverywhereModNamesMeta = Config.Bind(PluginMetadata.NAME, "Show Names Everywhere w/ metadata", NameMetadata.All, "Enables showing mod names in WorldSpace. They show under your user root. also allows you to select what metadata to show");
 
             HarmonyInstance.PatchAll();
         }

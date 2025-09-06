@@ -1,6 +1,6 @@
 # ExposePatchedMethods
 
-A [BepisLoader](https://github.com/ResoniteModding/BepisLoader) mod for [Resonite](https://resonite.com/) that exposes what mods you have loaded to your userspace.
+A [BepisLoader](https://github.com/ResoniteModding/BepisLoader) mod for [Resonite](https://resonite.com/) that exposes what mods you have loaded to your userspace or slots under your userRoot.
 
 it does this by creating a slots that's children are mods, there are 2 types of mod lists, mod names and harmonyids. there are config options to expose these lists under your UserSpace root and UserRoot.
 

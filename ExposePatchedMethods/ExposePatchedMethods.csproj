@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<Version>4.0.2</Version>
+		<Version>4.1.0</Version>
 		<Authors>eia485, kazu0617, rampa3</Authors>
 		<Product>$(AssemblyName)</Product>
 		<RepositoryUrl>https://github.com/EIA485/Neos$(Product)</RepositoryUrl>
@@ -27,6 +27,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="BepInEx.ResonitePluginInfoProps" Version="3.*" />
+		<PackageReference Include="ResoniteModding.BepInExResoniteShim" Version="0.8.*"/>
 		<Reference Include="0Harmony">
 			<HintPath>$(GamePath)BepInEx\core\0Harmony.dll</HintPath>
 		</Reference>
@@ -38,9 +39,6 @@
 		</Reference>
 		<Reference Include="BepInEx.Preloader.Core">
 			<HintPath>$(GamePath)BepInEx\core\BepInEx.Preloader.Core.dll</HintPath>
-		</Reference>
-		<Reference Include="BepInExResoniteShim">
-			<HintPath>$(GamePath)BepInEx\plugins\BepInExResoniteShim.dll</HintPath>
 		</Reference>
 		<Reference Include="FrooxEngine">
 		    <HintPath>$(GamePath)FrooxEngine.dll</HintPath>

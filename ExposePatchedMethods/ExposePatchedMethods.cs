@@ -140,7 +140,8 @@ namespace ExposePatchedMethods
 
 		static void GenList(Slot slot, NameMetadata metadata)
 		{
-			Slot list = slot.AddSlot("Loaded mod names", false);
+			var list = slot.Children.FirstOrDefault(s=>s.Name == "Loaded mod names")
+ 				?? slot.AddSlot("Loaded mod names", false);
 			foreach (ResoniteModBase mod in ModLoader.Mods())
 			{
 				Slot s = list.AddSlot(mod.Name);
@@ -154,7 +155,7 @@ namespace ExposePatchedMethods
 
 		static void GenList(Slot slot)
 		{
-			Slot list = slot.AddSlot("Loaded mods", false);
+            Slot list = slot.Children.FirstOrDefault(s => s.Name == "Loaded mods") ?? slot.AddSlot("Loaded mods", false);
 			foreach (string harmonyId in HarmonyIds) list.AddSlot(harmonyId);
 		}
 	}

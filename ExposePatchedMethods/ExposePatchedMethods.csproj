@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<Version>4.1.0</Version>
+		<Version>4.1.1</Version>
 		<Authors>eia485, kazu0617, rampa3</Authors>
 		<Product>$(AssemblyName)</Product>
 		<RepositoryUrl>https://github.com/EIA485/Neos$(Product)</RepositoryUrl>
@@ -12,12 +12,13 @@
 		
 		<RestoreAdditionalProjectSources>https://nuget-modding.resonite.net/v3/index.json</RestoreAdditionalProjectSources>
 		
-		<TargetFramework>net9.0</TargetFramework>
+		<TargetFramework>net10.0</TargetFramework>
 		<LangVersion>latest</LangVersion>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<Deterministic>true</Deterministic>
-
+		
+		<ThunderstorePackable>true</ThunderstorePackable>
 		<GamePath>$(MSBuildThisFileDirectory)Resonite</GamePath>
 		<GamePath Condition="Exists('C:\Program Files (x86)\Steam\steamapps\common\Resonite\')">C:\Program Files (x86)\Steam\steamapps\common\Resonite\</GamePath>
 		<GamePath Condition="Exists('$(HOME)\.steam\steam\steamapps\common\Resonite\')">$(HOME)/.steam/steam/steamapps/common/Resonite/</GamePath>

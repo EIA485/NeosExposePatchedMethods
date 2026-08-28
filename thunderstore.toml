@@ -6,7 +6,7 @@ schemaVersion = "0.0.1"
 [package]
 namespace = "eia485"
 name = "ExposePatchedMethods"
-versionNumber = "4.0.2"
+
 description = "exposes what mods you have loaded to your userspace or slots under your userRoot" # max 250 characters
 websiteUrl = "http://github.com/EIA485/NeosExposePatchedMethods"
 containsNsfwContent = false
@@ -21,12 +21,12 @@ outdir = "build"
 
 # Copy the compiled DLL to the plugins folder in mod package
 [[build.copy]]
-source = "ExposePatchedMethods/bin/Release/net9.0/ExposePatchedMethods.dll"
+source = "ExposePatchedMethods/bin/Release/net10.0/ExposePatchedMethods.dll"
 target = "plugins/"
 
 # Include PDB
 [[build.copy]]
-source = "ExposePatchedMethods/bin/Release/net9.0/ExposePatchedMethods.pdb"
+source = "ExposePatchedMethods/bin/Release/net10.0/ExposePatchedMethods.pdb"
 target = "plugins/"
 
 # include LICENSE file in mod package
